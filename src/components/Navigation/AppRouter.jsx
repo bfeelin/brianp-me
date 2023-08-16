@@ -6,23 +6,21 @@ import {
   Switch,
   Routes,
 } from 'react-router-dom'
-import HomePage from '../../pages/Homepage'
 import { Layout } from './Layout'
+import Homepage from '../../pages/Homepage'
 
 export default function AppRouter(props) {
   return (
     <>
       <Router>
-      <Layout>
+          <Switch>
+            <Layout>
 
-        <Routes>
-              <Route exact path='/' component={HomePage} />
-
+              <Route path='/' component={Homepage} />
             {/* <ProtectedRoute exact path='*' component={NotfoundPage} /> */}
+            </Layout>
 
-        </Routes>
-        </Layout>
-
+          </Switch>
       </Router>
 
     </>
