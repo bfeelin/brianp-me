@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import ManageActivities from "./Activities/ManageActivities";
 
-export default function CalendarSettings( { } ){
+export default function CalendarSettingsPage( { } ){
 
     return(
         <>
