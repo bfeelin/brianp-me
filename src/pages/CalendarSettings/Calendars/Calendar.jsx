@@ -5,7 +5,9 @@ import { FiCheck, FiEdit3, FiTrash2, FiX } from 'react-icons/fi';
 import { BiGridVertical } from 'react-icons/bi';
 
 function Calendar(props) {
-  const { calendar, selectedCalendar, setSelectedCalendar, handleDeleteCalendar } = props
+  const { calendar, selectedCalendar, setSelectedCalendar, handleUpdateCalendar, handleDeleteCalendar } = props
+  const [editing, setEditing] = useState(false)
+  const [newTitle, setNewTitle] = useState(calendar?.title && calendar.title)
 
   const selectedIconColor = useColorModeValue('black', 'white')
   return (
@@ -31,8 +33,48 @@ function Calendar(props) {
                 key={calendar.id}
               />
             </Center>
-            <Text fontSize='sm'>{calendar.title}</Text>
-              
+              {editing ? 
+              <Flex flexDir={'row'} align='center'>
+                  <Input 
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)}
+                    autoFocus
+                    w='160px'
+                    h='30px'
+                    >
+                  </Input>
+                  <IconButton
+                    size="md"
+                    variant='ghost'
+                    icon={<FiCheck/>}
+                    colorScheme='green'
+                    disabled={calendar.title == newTitle}
+                    onClick={() => {
+                        handleUpdateCalendar(calendar.id, {
+                            title: newTitle
+                        })
+                        setEditing(false)}}
+                  ></IconButton>
+                   <IconButton
+                    size="md"
+                    variant='ghost'
+                    icon={<FiX/>}
+                    colorScheme='red'
+                    onClick={() => setEditing(false)}
+                  ></IconButton>
+                </Flex>
+                :
+                <Flex flexDir={'row'} align='center'>
+                  <Text fontSize='sm'>{calendar.title}</Text>
+                  <IconButton
+                    size="md"
+                    variant='ghost'
+                    icon={<FiEdit3/>}
+                    colorScheme='green'
+                    onClick={() => setEditing(true)}
+                  ></IconButton>
+                </Flex>
+              }    
               </Flex>     
               <IconButton
                 size="sm"
