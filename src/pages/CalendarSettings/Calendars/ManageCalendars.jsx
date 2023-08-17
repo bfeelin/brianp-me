@@ -1,4 +1,3 @@
-// ManageCalendars.js
 import React, { useEffect, useState } from 'react';
 import { Flex, Text, Switch, Icon, Divider, Heading, GridItem, WrapItem } from '@chakra-ui/react';
 import { onSnapshot, collection } from 'firebase/firestore';
@@ -8,9 +7,10 @@ import { ReactSortable } from "react-sortablejs";
 import styled from "styled-components";
 import { useCalendars } from './useCalendars';
 import CalendarForm from './CalendarForm';
+import CalendarList from './CalendarList';
 
 function ManageCalendars() {
-  const { calendars, createCalendar, isLoading } = useCalendars();
+  const { calendars, updateCalendar, deleteCalendar, createCalendar, isLoading } = useCalendars();
 
 
   const [selectedCalendar, setSelectedCalendar] = useState()
@@ -39,7 +39,22 @@ function ManageCalendars() {
       <Heading size='sm' textTransform={'uppercase'}>Add A Calendar</Heading>
         <CalendarForm onSubmit={handleCreateCalendar} isSubmitting={isLoading} />
 
-        <Text>Calendar List Goes Here</Text>
+        {isLoading ? 
+          <Spinner />
+         : 
+            <>
+            {calendars && 
+                <CalendarList 
+                    calendars={calendars}
+                    selectedCalendar={selectedCalendar}
+                    setSelectedCalendar={setSelectedCalendar}
+                    updateCalendar={updateCalendar}
+                    deleteCalendar={deleteCalendar}
+                    />
+            }
+            </>
+
+        }
       </Flex>
       <Flex flexDir={'column'}>
         <Heading size='sm' textTransform={'uppercase'}>Activity Bank</Heading>
