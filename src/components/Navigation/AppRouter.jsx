@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import { Layout } from './Layout'
 import Homepage from '../../pages/Homepage'
+import CalendarSettingsPage from '../../pages/CalendarSettings/CalendarSettingsPage'
 
 export default function AppRouter(props) {
   return (
@@ -16,7 +17,9 @@ export default function AppRouter(props) {
           <Switch>
             <Layout>
 
-              <Route path='/' component={Homepage} />
+              <Route exact path='/' component={Homepage} />
+              <Route exact path='/calendar-settings' component={CalendarSettingsPage} />
+
             {/* <ProtectedRoute exact path='*' component={NotfoundPage} /> */}
             </Layout>
 
