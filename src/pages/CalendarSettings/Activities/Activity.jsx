@@ -27,7 +27,6 @@ function Activity(props) {
             })
     }
   }
-
   return (
     <>
       <Flex key={activity.id}
@@ -47,20 +46,20 @@ function Activity(props) {
                            colorScheme='green'
    
                            onClick={(e) => {
-                           e.stopPropagation();
-                           restoreActivity(activity.id);
+                                e.stopPropagation();
+                                restoreActivity(activity.id);
                            }}
                        ></IconButton>
                         :
-                        <IconButton
+                    <IconButton
                         size="sm"
                         variant='ghost'
                         icon={<FiTrash2/>}
                         colorScheme='red'
 
                         onClick={(e) => {
-                        e.stopPropagation();
-                        markActivityDeleted(activity.id);
+                            e.stopPropagation();
+                            markActivityDeleted(activity.id);
                         }}
                     ></IconButton>
 
@@ -89,7 +88,7 @@ function Activity(props) {
                     size="md"
                     ml='1'
                     colorScheme={isAddition ? 'blue' : 'green'}
-                    disabled={(activity?.title == newTitle && activity?.description == newDescription) ||
+                    isDisabled={(activity.title == newTitle && activity.description == newDescription) ||
                                 newDescription == '' || newTitle == '' || activity.deleted
                     }
                     onClick={() => handleAddOrSave()}
