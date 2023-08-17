@@ -5,7 +5,7 @@ import {
     useColorModeValue,
 } from '@chakra-ui/react'
 import {
-    FiHome,
+    FiHome, FiSettings,
 } from 'react-icons/fi'
 import NavItem from './NavItem'
 
@@ -29,7 +29,8 @@ export default function Sidebar() {
             >
                 <NavItem icon={FiHome} name="Home" to="/"/>
                 <Divider/>
-
+                <NavItem icon={FiSettings} name="Calendar Settings" to="/calendar-settings"/>
+                <Divider/>
             </Flex>
             </>
             
