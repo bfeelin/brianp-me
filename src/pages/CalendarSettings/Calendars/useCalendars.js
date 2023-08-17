@@ -19,15 +19,6 @@ export function useCalendars() {
     return () => unsubscribe();
   }, []);
 
-  const handleReorderCalendars = async () => {
-    calendars.forEach(async (calendar, i) => {
-      const calendarRef = doc(db, 'calendars', calendar.id);
-      await updateDoc(calendarRef, {
-        order: i
-      });
-    })
-  }
-
   const createCalendar = async (values) => {
     console.log(values)
     const docRef = doc(collection(db, 'calendars'))
