@@ -1,4 +1,3 @@
-// CalendarForm.js
 import React, { useState } from 'react';
 import { Button, Input, Flex, Center, Text } from '@chakra-ui/react';
 
