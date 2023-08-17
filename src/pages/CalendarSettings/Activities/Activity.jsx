@@ -14,8 +14,8 @@ function Activity(props) {
   const handleAddOrSave = () => {
     if(isAddition){
         createActivity({
-            title: newTitle, description: 
-            newDescription, color: newColor
+            title: newTitle, 
+            description: newDescription
         })
         setNewTitle('')
         setNewDescription('')
