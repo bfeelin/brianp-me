@@ -1,6 +1,5 @@
 // TopicList.js
 import React, { useState } from 'react';
-import useActivities from './useActivities';
 import Activity from './Activity'
 import { Box, Text } from '@chakra-ui/react';
 
