@@ -15,13 +15,11 @@ function CalendarForm({ initVals, onSubmit, isSubmitting }) {
   return (
         <Center mb='2'>
             <Flex w='20vw' align='center' justify={'center'}>
-                <Flex flexDir={'row'} align={'center'}>
-                    <Input
+                <Input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    />
-                </Flex>
+                />
                 <Button
                     type='submit'
                     isLoading={isSubmitting}
