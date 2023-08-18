@@ -4,7 +4,7 @@ import { Text, Flex, IconButton, Checkbox, Icon, Center, Input, useColorModeValu
 import { FiX } from 'react-icons/fi';
 import { BiGridVertical } from 'react-icons/bi';
 
-function ActivityCard({ activity, calendar, day, width, maxWidth, i, truncateText }) {
+function ActivityCard({ activity, calendar, day, width, maxWidth, i, truncateText, handleDeleteActivity }) {
   const bgColor = useColorModeValue('blue.400','blue.600')
   const textColor = useColorModeValue('white', 'gray.200')
 
@@ -43,7 +43,18 @@ function ActivityCard({ activity, calendar, day, width, maxWidth, i, truncateTex
                 </Text>
               </Center>
               </Flex>    
-
+              <Center>
+                {handleDeleteActivity && activity.id &&
+                  <IconButton 
+                    size='sm' 
+                    variant='ghost'
+                    colorScheme={'white'} 
+                    key={`activity-delete-button-${calendar.id}-${day.name}-${activity.id}-${i}`} 
+                    onClick={() => handleDeleteActivity(activity.id)} 
+                    icon={<FiX />} 
+                  />
+                }
+              </Center>
       </Flex>
     );
 }
