@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Text, Switch, Icon, Divider, Heading, GridItem, WrapItem } from '@chakra-ui/react';
+import { Flex, Text, Switch, Icon, Divider, Heading, Spinner, WrapItem } from '@chakra-ui/react';
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../../../utils/init-firebase';
 import ActivityCard from './ActivityCard';
@@ -8,6 +8,8 @@ import styled from "styled-components";
 import { useCalendars } from './useCalendars';
 import CalendarForm from './CalendarForm';
 import CalendarList from './CalendarList';
+import CalendarConfig from './CalendarConfig';
+
 
 function ManageCalendars() {
   const { calendars, updateCalendar, deleteCalendar, createCalendar, isLoading } = useCalendars();
@@ -82,14 +84,13 @@ function ManageCalendars() {
     <Flex flexDir='row'>
       <Flex mr='2' flexDir='column' width='55vw' align="start">
         {selectedCalendar &&
-        <>
-         
+        <>   
           <Flex  mb='2'>       
             <Heading size='sm' textTransform={'uppercase'}>{selectedCalendar?.name}</Heading>
           </Flex>
-          <Text>Calendar Config Goes Here</Text>
-
-        </>}
+          <CalendarConfig key={`calendar-config-${selectedCalendar.id}`} calendar={selectedCalendar} allActivities={allActivities}/>
+        </>
+        }
         </Flex>
     </Flex>
     </>
