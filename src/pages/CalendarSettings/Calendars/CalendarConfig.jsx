@@ -35,7 +35,7 @@ export default function CalendarConfig( { calendar, allActivities } ){
         <>
             <ScaleFade initialScale={0.9} in>
                 <Grid 
-                    gridTemplateColumns={'repeat(6, 1fr)'}
+                    gridTemplateColumns={'repeat(7, 1fr)'}
                     border={'1px solid grey'}
                     borderRadius={'lg'}
                     minH='40vh'
@@ -45,7 +45,7 @@ export default function CalendarConfig( { calendar, allActivities } ){
                         <GridItem 
                             key={`grid-item-${day.title}-${calendar.id}`}
                             border={'1px solid lightgrey'}
-                            w='14vw' 
+                            w='12vw' 
                             p='2'>
                             <Heading textAlign={'center'} mb='2' size='sm'>{day.title && day.title}</Heading>
                             <DayConfig 
