@@ -27,17 +27,12 @@ export default function DayConfig( { day, calendar, allActivities } ){
         }
     }
 
-    // const handleSetTheseActivities = async (newActivities) => {
-    //     setTheseActivities(newActivities)
-    //     await handleUpdateCalendar(newActivities)
-    // }
-
     return(
         <>
 
             <ReactSortable   
                 key={`react-sortable-${calendar.id}-${day.title}`}     
-                clone={item => ({ id: item.id, title: item.title, description: item.description })}
+                clone={item => ({ id: item.id, title: item.title, description: item.description, color: item.color })}
                 list={theseActivities} 
                 setList={setTheseActivities}
                 group={{ name: "activities", pull: "clone" }}
