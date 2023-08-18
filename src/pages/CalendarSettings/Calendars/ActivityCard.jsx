@@ -5,7 +5,10 @@ import { FiX } from 'react-icons/fi';
 import { BiGridVertical } from 'react-icons/bi';
 
 function ActivityCard({ activity, calendar, day, width, maxWidth, i, truncateText, handleDeleteActivity }) {
-  const bgColor = useColorModeValue('blue.400','blue.600')
+  const bgColor = useColorModeValue(
+    `${activity.color ? `${activity.color}.400` : 'blue.400'}`,
+    `${activity.color ? `${activity.color}.600` : 'blue.600'}`
+  )
   const textColor = useColorModeValue('white', 'gray.200')
 
   return (
