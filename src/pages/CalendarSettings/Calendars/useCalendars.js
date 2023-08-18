@@ -45,7 +45,6 @@ export function useCalendars() {
   return {  
         calendars, 
         setCalendars, 
-        handleReorderCalendars, 
         isLoading, 
         createCalendar, 
         updateCalendar, 
