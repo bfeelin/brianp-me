@@ -7,14 +7,14 @@ export default function DayConfig( { day, calendar, allActivities } ){
     const { updateCalendar } = useCalendars(calendar.id)
     const [theseActivities, setTheseActivities] = useState(day.activities ? day.activities : [])
 
-    useEffect(async() => {
+    useEffect( () => {
         const handleUpdateCalendar = async () => {
             await updateCalendar(calendar.id, {
                 [`${day.title}`]: theseActivities
             })
         }
 
-        await handleUpdateCalendar()
+        handleUpdateCalendar()
 
     }, [theseActivities])
 
