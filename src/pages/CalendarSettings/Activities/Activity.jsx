@@ -10,20 +10,25 @@ function Activity(props) {
   const { createActivity, updateActivity, markActivityDeleted, restoreActivity } = useActivities()
   const [newTitle, setNewTitle] = useState(activity?.title && activity.title)
   const [newDescription, setNewDescription] = useState(activity?.description && activity.description)
+  const [newColor, setNewColor] = useState(activity?.color && activity.color)
 
   const handleAddOrSave = () => {
     if(isAddition){
         createActivity({
             title: newTitle, 
-            description: newDescription
+            description: newDescription,
+            color: newColor
         })
         setNewTitle('')
         setNewDescription('')
+        setNewColor('')
+
     }
     else{
         updateActivity(activity.id, {
                 title: newTitle, 
-                description: newDescription
+                description: newDescription,
+                color: newColor
             })
     }
   }
@@ -84,6 +89,12 @@ function Activity(props) {
                       disabled={activity.deleted}
                       >
                   </Input>
+                  <ColorPicker
+                      color={newColor}
+                      setColor={setNewColor}
+                      disabled={activity.deleted}
+                      disableInput
+                  />
                   <Button
                     size="md"
                     ml='1'
