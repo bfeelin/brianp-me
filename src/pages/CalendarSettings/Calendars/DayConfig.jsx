@@ -32,7 +32,7 @@ export default function DayConfig( { day, calendar, allActivities } ){
 
             <ReactSortable   
                 key={`react-sortable-${calendar.id}-${day.title}`}     
-                clone={item => ({ id: item.id, title: item.title, description: item.description, color: item.color })}
+                clone={item => ({ ...item })}
                 list={theseActivities} 
                 setList={setTheseActivities}
                 group={{ name: "activities", pull: "clone" }}
