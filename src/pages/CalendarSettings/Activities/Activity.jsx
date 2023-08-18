@@ -4,6 +4,7 @@ import { Button, Flex, IconButton, Input } from '@chakra-ui/react';
 import { FiTrash2, FiX } from 'react-icons/fi';
 import useActivities from './useActivities';
 import { FaTrashRestore } from 'react-icons/fa';
+import ColorPicker from '../../../components/ColorPicker';
 
 function Activity(props) {
   const { activity, isAddition } = props
@@ -99,7 +100,7 @@ function Activity(props) {
                     size="md"
                     ml='1'
                     colorScheme={isAddition ? 'blue' : 'green'}
-                    isDisabled={(activity.title == newTitle && activity.description == newDescription) ||
+                    isDisabled={(activity.title == newTitle && activity.description == newDescription && activity.color == newColor) ||
                                 newDescription == '' || newTitle == '' || activity.deleted
                     }
                     onClick={() => handleAddOrSave()}
