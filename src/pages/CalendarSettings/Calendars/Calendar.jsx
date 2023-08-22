@@ -1,7 +1,7 @@
 // Calendar.js
 import React, { useState } from 'react';
 import { Text, Flex, IconButton, Icon, Center, Input, useColorModeValue } from '@chakra-ui/react';
-import { FiCheck, FiEdit3, FiTrash2, FiX } from 'react-icons/fi';
+import { FiCheck, FiCheckCircle, FiCircle, FiEdit3, FiTrash2, FiX } from 'react-icons/fi';
 import { BiGridVertical } from 'react-icons/bi';
 
 function Calendar(props) {
@@ -25,11 +25,14 @@ function Calendar(props) {
               <Flex>
             <Center>
               <Icon 
-                cursor={'grabbing'}
-                className='reorder-handle'
-                as={BiGridVertical}
+                //cursor={'grabbing'}
+                //className='reorder-handle'
+                //as={BiGridVertical}
+                pt='1'
+                mr='1'
+                as={selectedCalendar?.id === calendar?.id ? FiCheckCircle: FiCircle}
                 color={selectedCalendar?.id === calendar?.id ? selectedIconColor : 'gray.400'}
-                fontSize={'3xl'}
+                fontSize={'xl'}
                 key={calendar.id}
               />
             </Center>
