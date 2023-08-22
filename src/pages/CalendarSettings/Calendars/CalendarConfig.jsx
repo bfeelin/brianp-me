@@ -34,30 +34,30 @@ export default function CalendarConfig( { calendar, allActivities } ){
     return(
         <>
             <ScaleFade initialScale={0.9} in>
-            <Grid 
-                gridTemplateColumns={'repeat(7, 1fr)'}
-                border={'1px solid grey'}
-                borderRadius={'lg'}
-                minH='40vh'
-            >
-                {days?.map((day) => (
-                    <>
-                    <GridItem 
-                        key={`grid-item-${day.title}-${calendar.id}`}
-                        border={'1px solid lightgrey'}
-                        w='12vw' 
-                        p='2'>
-                        <Heading textAlign={'center'} mb='2' size='sm'>{day.title && day.title}</Heading>
-                        <DayConfig 
-                            day={day}
-                            calendar={calendar}
-                            allActivities={allActivities}
-                        />
-                    </GridItem>
-                    </>
-                ))}
-                
-            </Grid>
+                <Grid 
+                    gridTemplateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', xl: 'repeat(4, 1fr)', '2xl': 'repeat(7, 1fr)'}}
+                    border={'1px solid grey'}
+                    borderRadius={'lg'}
+                    minH='40vh'
+                >
+                    {days?.map((day) => (
+                        <>
+                        <GridItem 
+                            key={`grid-item-${day.title}-${calendar.id}`}
+                            border={'1px solid lightgrey'}
+                            w={{base: '84vw', md: '42vw', xl: '21vw', '2xl': '12vw'}}
+                            p='2'>
+                            <Heading textAlign={'center'} mb='2' size='sm'>{day.title && day.title}</Heading>
+                            <DayConfig 
+                                day={day}
+                                calendar={calendar}
+                                allActivities={allActivities}
+                            />
+                        </GridItem>
+                        </>
+                    ))}
+                    
+                </Grid>
             </ScaleFade>
      </>
     )
