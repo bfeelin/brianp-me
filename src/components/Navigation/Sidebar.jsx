@@ -27,8 +27,8 @@ export default function Sidebar() {
                 alignItems={"flex-start"}
                 as="nav"
             >
-                <NavItem icon={FiHome} name="Home" to="/"/>
-                <Divider/>
+                {/* <NavItem icon={FiHome} name="Home" to="/"/>
+                <Divider/> */}
                 <NavItem icon={FiSettings} name="Calendar Settings" to="/calendar-settings"/>
                 <Divider/>
             </Flex>
