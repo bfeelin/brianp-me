@@ -3,11 +3,18 @@ import {
     Flex,
     Divider,
     useColorModeValue,
+    Link,
+    Button,
 } from '@chakra-ui/react'
 import {
     FiHome, FiSettings,
 } from 'react-icons/fi'
 import NavItem from './NavItem'
+import { FaGithub } from 'react-icons/fa'
+
+function handleNavigateExternal(url){
+    window.open(url, '_blank').focus()
+}
 
 export default function Sidebar() {
     return (
@@ -18,9 +25,8 @@ export default function Sidebar() {
             w={"200px"}
             backgroundColor={useColorModeValue('white', 'midnight')}
             flexDir="column"
-            justifyContent="flex-start"
+            justifyContent="space-between"
             >
-           <>
             <Flex
                 flexDir="column"
                 width={'100%'}
@@ -32,8 +38,15 @@ export default function Sidebar() {
                 <NavItem icon={FiSettings} name="Calendar Settings" to="/calendar-settings"/>
                 <Divider/>
             </Flex>
-            </>
-            
+            <Button 
+                onClick={() => handleNavigateExternal('https://github.com/bfeelin/brianp-me')} 
+                size='lg'
+                color='black'
+                colorScheme='blackAlpha'
+                variant={'ghost'}
+                leftIcon={<FaGithub />}>
+                    GitHub
+            </Button>
         </Flex>
     
     )
