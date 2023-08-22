@@ -13,7 +13,7 @@ function Calendar(props) {
   return (
       <Flex key={calendar.id}
             flexDir={'row'}
-            width='20vw'
+            w={{base: '80vw', md: '50vw', xl: '20vw'}}
             borderWidth={'1px'}
             fontWeight={selectedCalendar?.id === calendar?.id ? 'bold' : 'normal'}
             justify={'space-between'}

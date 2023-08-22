@@ -13,8 +13,6 @@ import CalendarConfig from './CalendarConfig';
 
 function ManageCalendars() {
   const { calendars, updateCalendar, deleteCalendar, createCalendar, isLoading } = useCalendars();
-
-
   const [selectedCalendar, setSelectedCalendar] = useState()
   const [allActivities, setAllActivities] = useState([])
 
@@ -36,14 +34,14 @@ function ManageCalendars() {
 
   return (
     <>
-    <Flex flexDir='row' mb='2'>
-      <Flex mr='5' flexDir='column' width='20vw' align="start">
+    <Flex flexDir={{base: 'column', md: 'column', xl: 'row'}} mb='2'>
+      <Flex mr='5' flexDir='column' width={{base: '84vw', md: '84vw', xl: '20vw'}} align="start">
       <Heading size='sm' textTransform={'uppercase'}>Add A Calendar</Heading>
         <CalendarForm onSubmit={handleCreateCalendar} isSubmitting={isLoading} />
 
         {isLoading ? 
           <Spinner />
-         : 
+          : 
             <>
             {calendars && 
                 <CalendarList 
@@ -59,13 +57,12 @@ function ManageCalendars() {
         }
       </Flex>
       <Flex flexDir={'column'}>
-        <Heading size='sm' textTransform={'uppercase'}>Activity Bank</Heading>
+        <Heading size='sm' mb='1' mt={{base: '2', md: '2', xl: '0'}} textTransform={'uppercase'}>Activity Bank</Heading>
         <StyledReactSortable
               list={allActivities}
               setList={setAllActivities}
               animation={200}
               sort={false}
-              
               clone={item => ({ ...item })}
               group={{ name: "activities", pull: "clone", put: false }}
           >

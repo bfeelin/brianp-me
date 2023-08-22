@@ -13,7 +13,7 @@ function CalendarForm({ initVals, onSubmit, isSubmitting }) {
 
   return (
         <Center mb='2'>
-            <Flex w='20vw' align='center' justify={'center'}>
+            <Flex w={{base: '80vw', md: '50vw', xl: '20vw'}} align='center' justify={'center'}>
                 <Input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
